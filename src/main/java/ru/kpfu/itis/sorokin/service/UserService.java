@@ -9,20 +9,16 @@ import ru.kpfu.itis.sorokin.model.Role;
 import ru.kpfu.itis.sorokin.model.User;
 import ru.kpfu.itis.sorokin.repository.RoleRepository;
 import ru.kpfu.itis.sorokin.repository.UserRepository;
-import ru.kpfu.itis.sorokin.repository.UserRepositoryHibernate;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
 public class UserService {
-    private final UserRepositoryHibernate userRepositoryHibernate;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
 
-    public UserService(UserRepositoryHibernate userRepositoryHibernate, UserRepository userRepository, PasswordEncoder passwordEncoder,RoleRepository roleRepository) {
-        this.userRepositoryHibernate = userRepositoryHibernate;
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder,RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.roleRepository = roleRepository;

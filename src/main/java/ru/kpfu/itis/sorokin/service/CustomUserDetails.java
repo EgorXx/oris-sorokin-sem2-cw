@@ -16,6 +16,8 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        System.out.println("getAuthorities " + user.getRoles());
+
         return user.getRoles()
                 .stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName()))
@@ -24,11 +26,15 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
+        System.out.println("getPassword " + user.getPassword());
+
         return user.getPassword();
     }
 
     @Override
     public String getUsername() {
+        System.out.println("getUsername " + user.getUsername());
+
         return user.getUsername();
     }
 }

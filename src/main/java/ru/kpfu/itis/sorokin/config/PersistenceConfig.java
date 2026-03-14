@@ -76,17 +76,17 @@ public class PersistenceConfig implements EnvironmentAware  {
         return new PersistenceAnnotationBeanPostProcessor();
     }
 
-    @Bean
-    public LocalSessionFactoryBean localSessionFactoryBean() {
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("ru.kpfu.itis.sorokin.model");
-        Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
-        sessionFactory.setHibernateProperties(hibernateProperties);
-
-        return sessionFactory;
-    }
+//    @Bean
+//    public LocalSessionFactoryBean localSessionFactoryBean() {
+//        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+//        sessionFactory.setDataSource(dataSource());
+//        sessionFactory.setPackagesToScan("ru.kpfu.itis.sorokin.model");
+//        Properties hibernateProperties = new Properties();
+//        hibernateProperties.setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
+//        sessionFactory.setHibernateProperties(hibernateProperties);
+//
+//        return sessionFactory;
+//    }
 
     @Bean
     public PlatformTransactionManager transactionManager() {
@@ -95,10 +95,10 @@ public class PersistenceConfig implements EnvironmentAware  {
         return transactionManager;
     }
 
-    @Bean
-    public PlatformTransactionManager hibernateTransactionManager() {
-        HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager();
-        hibernateTransactionManager.setSessionFactory(localSessionFactoryBean().getObject());
-        return hibernateTransactionManager;
-    }
+//    @Bean
+//    public PlatformTransactionManager hibernateTransactionManager() {
+//        HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager();
+//        hibernateTransactionManager.setSessionFactory(localSessionFactoryBean().getObject());
+//        return hibernateTransactionManager;
+//    }
 }
